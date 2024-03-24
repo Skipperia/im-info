@@ -1,9 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import '@styles/app.scss';
+import { AdvancedViewContext } from '@renderer/window/WindowFrame';
+import { ToggleButton } from '@mui/material';
+
+
 
 const Application: React.FC = () => {
   const [darkTheme, setDarkTheme] = useState(true);
 
+  const { isAdvancedView, setIsAdvancedView } = useContext(AdvancedViewContext);
+
+
+  const toggleAdvancedView = () => {
+    console.log("happend!" + isAdvancedView)
+    setIsAdvancedView(!isAdvancedView)
+  }
   /**
    * On component mount
    */
@@ -43,7 +54,14 @@ const Application: React.FC = () => {
 
   return (
     <div id='erwt'>
-
+      <ToggleButton
+        value="check"
+        selected={isAdvancedView}
+        onChange={() => {
+          toggleAdvancedView();
+        }}
+      >
+      </ToggleButton>
     </div>
   );
 };

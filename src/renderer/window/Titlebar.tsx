@@ -32,14 +32,7 @@ const Titlebar: React.FC<Props> = (props) => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.repeat) return; // Prevent repeatation of toggle when key holding
-      if (e.altKey) {
-        // Hiding menus? close active menu popup
-        if (menusVisible) {
-          closeActiveMenu();
-        }
-        setMenusVisible(!menusVisible);
-      }
+
     };
 
     document.addEventListener('keydown', handleKeyDown);
@@ -136,7 +129,7 @@ const Titlebar: React.FC<Props> = (props) => {
           centered: props.mode === 'centered-title',
         })}
       >
-        {menusVisible ? '' : <div className='window-title'>{props.title}</div>}
+        <div className='window-title'>{props.title}</div>
       </section>
 
       <section

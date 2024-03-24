@@ -10,9 +10,28 @@
  * @package : Window Frame (Component)
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, createContext, useState, SetStateAction } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
 import Titlebar from './Titlebar';
 import logo from '@assets/images/im-info-logo.png';
+import { createTheme } from '@mui/material/styles';
+import { blue } from '@mui/material/colors';
+
+
+// A custom theme for this app
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#556cd6',
+    },
+    secondary: {
+      main: '#19857b',
+    },
+    error: {
+      main: blue.A400,
+    },
+  },
+});
 
 type Props = {
   title?: string;
@@ -25,12 +44,23 @@ type Context = {
   platform: 'windows' | 'mac';
 };
 
+interface AdvancedViewState {
+  isAdvancedView: boolean;
+  setIsAdvancedView: (isAdvancedView: boolean) => void;
+}
+
 export const WindowContext = React.createContext<Context>({
   platform: 'windows',
 });
 
+export const AdvancedViewContext = React.createContext<AdvancedViewState>({
+  isAdvancedView: true, setIsAdvancedView: () => { },
+});
+
+
 const WindowFrame: React.FC<Props> = (props) => {
   const itsRef = useRef<HTMLDivElement>(null);
+  const [isAdvancedView, setIsAdvancedView] = useState<boolean>(true);
 
   useEffect(() => {
     const { parentElement } = itsRef.current;
@@ -45,17 +75,21 @@ const WindowFrame: React.FC<Props> = (props) => {
 
   return (
     <WindowContext.Provider value={{ platform: props.platform }}>
-      {/* Reference creator */}
-      <div className='start-electron-window' ref={itsRef}></div>
-      {/* Window Titlebar */}
-      <Titlebar
-        title={props.title ?? 'Electron Window'}
-        mode='centered-title'
-        icon={logo}
-      />
-      {/* Window Content (Application to render) */}
-      <div className='window-content'>{props.children}</div>
-    </WindowContext.Provider>
+      <ThemeProvider theme={theme}>
+        <AdvancedViewContext.Provider value={{ isAdvancedView: isAdvancedView, setIsAdvancedView: setIsAdvancedView }}>
+          {/* Reference creator */}
+          <div className='start-electron-window' ref={itsRef}></div>
+          {/* Window Titlebar */}
+          <Titlebar
+            title={props.title ?? 'Electron Window'}
+            mode='centered-title'
+            icon={logo}
+          />
+          {/* Window Content (Application to render) */}
+          <div className='window-content'>{props.children}</div>
+        </AdvancedViewContext.Provider>
+      </ThemeProvider>
+    </WindowContext.Provider >
   );
 };
 
