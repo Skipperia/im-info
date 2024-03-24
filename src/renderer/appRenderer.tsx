@@ -8,7 +8,7 @@ console.log('[IMInfo] : Renderer execution started');
 
 // Application to Render
 const app = (
-  <WindowFrame title='IM Info' platform='windows'>
+  <WindowFrame title='IM-Info' platform='windows'>
     <Application />
   </WindowFrame>
 );
