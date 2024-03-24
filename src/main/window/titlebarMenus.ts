@@ -28,9 +28,13 @@ const titlebarMenus: TitlebarMenu[] = [
     name: 'File',
     items: [
       {
+        name: "Change Theme",
+        action: 'changeTheme'
+      },
+      {
         name: 'Exit',
         action: 'exit',
-      },
+      }
     ],
   },
   {

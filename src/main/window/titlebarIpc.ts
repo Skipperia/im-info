@@ -21,6 +21,10 @@ export const registerTitlebarIpc = (mainWindow: BrowserWindow) => {
     mainWindow.maximize();
   });
 
+  ipcMain.handle('change-theme', () => {
+
+  });
+
   ipcMain.handle('window-toggle-maximize', () => {
     if (mainWindow.isMaximized()) {
       mainWindow.unmaximize();

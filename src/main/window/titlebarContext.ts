@@ -16,6 +16,17 @@ const titlebarContext = {
   exit() {
     ipcRenderer.invoke('window-close');
   },
+  changeTheme() {
+    const currentTheme = localStorage.getItem('dark-mode');
+    if (currentTheme === '1') {
+      localStorage.setItem('dark-mode', '0');
+      document.body.classList.remove('dark-mode');
+    }
+    else {
+      localStorage.setItem('dark-mode', '1');
+      document.body.classList.add('dark-mode');
+    }
+  },
   undo() {
     ipcRenderer.invoke('web-undo');
   },
