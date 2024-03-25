@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import '@styles/app.scss';
 import { AdvancedViewContext } from '@renderer/window/WindowFrame';
-import { ToggleButton } from '@mui/material';
+import { Button, ToggleButton } from '@mui/material';
+import popUpContext from '@main/mainwindow/popUpContextApi';
 
 
 
@@ -52,6 +53,12 @@ const Application: React.FC = () => {
     setDarkTheme(!darkTheme);
   }
 
+  const showPopUp = () => {
+    console.log("dsadas");
+    console.log(popUpContext);
+    popUpContext.showPopUp("dsa")
+  }
+
   return (
     <div id='erwt'>
       <ToggleButton
@@ -62,7 +69,8 @@ const Application: React.FC = () => {
         }}
       >
       </ToggleButton>
-    </div>
+      <Button variant="outlined" onClick={showPopUp} >Text</Button>
+    </div >
   );
 };
 

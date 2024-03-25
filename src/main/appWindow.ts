@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'path';
-import { registerTitlebarIpc } from '@main/window/titlebarIpc';
-import { registerPopUpIpc } from './popup/popUpIpc';
+import { registerTitlebarIpc } from '@main/mainwindow/titlebarIpc';
+import { registerPopUpIpc } from './mainwindow/popUpIpc';
 
 // Electron Forge automatically creates these entry points
 declare const APP_WINDOW_WEBPACK_ENTRY: string;

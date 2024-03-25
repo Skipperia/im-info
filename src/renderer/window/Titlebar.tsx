@@ -11,10 +11,10 @@
  */
 
 import React, { createRef, useContext, useEffect, useRef, useState } from 'react';
-import titlebarMenus from '@main/window/titlebarMenus';
+import titlebarMenus from '@main/mainwindow/titlebarMenus';
 import classNames from 'classnames';
 import WindowControls from './WindowControls';
-import context from '@main/window/titlebarContextApi';
+import context from '@main/mainwindow/titlebarContextApi';
 import { WindowContext } from './WindowFrame';
 import './titlebar.scss';
 

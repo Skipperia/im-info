@@ -1,11 +1,14 @@
 import { BrowserWindow, ipcMain, shell } from 'electron';
+import path from 'path';
+import popupHtmlPath from '@main/popup/popup'
+
 
 
 let popUpWindow: BrowserWindow;
 
 export const registerPopUpIpc = (mainWindow: BrowserWindow) => {
 
-    ipcMain.addListener("info-message", (event , message) => {
+    ipcMain.handle("info-message-show-popup", (event, message) => {
         popUpWindow = new BrowserWindow({
             width: 400,
             height: 200,
@@ -23,14 +26,18 @@ export const registerPopUpIpc = (mainWindow: BrowserWindow) => {
             popUpWindow = null;
         });
 
-
-        popUpWindow.loadFile('src/assets/htmls/popup.html');
+        popUpWindow.loadFile("");
 
         // Send the message to the popup
         popUpWindow.webContents.on('did-finish-load', () => {
             popUpWindow.webContents.send('message', message);
         });
+    });
 
-
+    ipcMain.handle("info-message-close-popup", () => {
+        if (popUpWindow) {
+            popUpWindow.close();
+            popUpWindow = null;
+        }
     });
 }

@@ -12,7 +12,7 @@
 
 import classNames from 'classnames';
 import React from 'react';
-import context from '@main/window/titlebarContextApi';
+import context from '@main/mainwindow/titlebarContextApi';
 
 import ControlButton from './ControlButton';
 

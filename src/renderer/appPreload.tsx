@@ -1,4 +1,4 @@
-import '@main/window/windowPreload';
+import '@main/mainwindow/windowPreload';
 
 // Say something
 console.log('[IM-Info] : Preload execution started');
