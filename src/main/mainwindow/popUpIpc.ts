@@ -1,6 +1,4 @@
 import { BrowserWindow, ipcMain, shell } from 'electron';
-import path from 'path';
-import popupHtmlPath from '@main/popup/popup'
 
 
 
