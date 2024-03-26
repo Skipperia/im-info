@@ -12,8 +12,7 @@
 
 import { BrowserWindow, ipcMain, shell } from 'electron';
 
-export const registerTitlebarIpc = (mainWindow: BrowserWindow) => {
-
+export const registerTitlebarIpc = (mainWindow: BrowserWindow, windowContext: { forceClose: boolean }) => {
   ipcMain.handle('window-minimize', () => {
     mainWindow.minimize();
   });
@@ -30,7 +29,8 @@ export const registerTitlebarIpc = (mainWindow: BrowserWindow) => {
     }
   });
 
-  ipcMain.handle('window-close', () => {
+  ipcMain.handle('window-close', (event, forceClose: boolean) => {
+    windowContext.forceClose = forceClose;
     mainWindow.close();
   });
 

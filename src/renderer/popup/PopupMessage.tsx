@@ -9,9 +9,7 @@ const PopupMessage = () => {
 
     useEffect(() => {
         // Receiving a message from the main process
-        console.log(window);
         (window as any).electron.recieveEventMessage('message', (message: string, body: string) => {
-            console.log(message);
             setMsg(message);
             setBody(body);
         });

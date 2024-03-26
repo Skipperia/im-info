@@ -14,7 +14,7 @@ export type TitlebarMenuItem = {
   name: string;
   action?: string;
   shortcut?: string;
-  value?: string | number;
+  value?: string | number | boolean;
   items?: TitlebarMenuItem[];
 };
 
@@ -35,6 +35,7 @@ const titlebarMenus: TitlebarMenu[] = [
       {
         name: 'Exit',
         action: 'exit',
+        value: true
       }
     ],
   },

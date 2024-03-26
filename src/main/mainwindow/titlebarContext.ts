@@ -13,8 +13,8 @@
 import { ipcRenderer } from 'electron';
 
 const titlebarContext = {
-  exit() {
-    ipcRenderer.invoke('window-close');
+  exit(forceClose: boolean) {
+    ipcRenderer.invoke('window-close', forceClose);
   },
   changeTheme() {
     const currentTheme = localStorage.getItem('dark-mode');

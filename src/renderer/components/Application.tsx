@@ -13,7 +13,6 @@ const Application: React.FC = () => {
 
 
   const toggleAdvancedView = () => {
-    console.log("happend!" + isAdvancedView)
     setIsAdvancedView(!isAdvancedView)
   }
   /**
@@ -54,8 +53,6 @@ const Application: React.FC = () => {
   }
 
   const showPopUp = () => {
-    console.log("dsadas");
-    console.log(popUpContext);
     popUpContext.showPopUp({ message: "event title", body: "event body" });
   }
 

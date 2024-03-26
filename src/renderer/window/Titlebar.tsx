@@ -103,7 +103,7 @@ const Titlebar: React.FC<Props> = (props) => {
     }
   }
 
-  function handleAction(action?: string, value?: string | number) {
+  function handleAction(action?: string, value?: string | number | boolean) {
     closeActiveMenu();
     const c: Record<string, CallableFunction> = context;
     if (action) {

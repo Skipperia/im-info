@@ -48,7 +48,7 @@ const WindowControls: React.FC<Props> = (props) => {
       />
       <ControlButton
         name='close'
-        onClick={() => context.exit()}
+        onClick={() => context.exit(false)}
         path={closePath}
         title={props.tooltips ? 'Close' : null}
       />
