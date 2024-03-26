@@ -2,8 +2,8 @@ import { ipcRenderer } from 'electron';
 
 
 const popUpContext = {
-    showPopUp(msg: string) {
-        ipcRenderer.invoke('info-message-show-popup', msg);
+    showPopUp(eventMessage: { message: string, body: string }) {
+        ipcRenderer.invoke('info-message-show-popup', eventMessage);
     },
     closePopUp() {
         ipcRenderer.invoke('info-message-close-popup');

@@ -1,7 +1,10 @@
 const { contextBridge, ipcRenderer } = require('electron');
+import '@main/mainwindow/windowPreload';
+
 
 contextBridge.exposeInMainWorld('electron', {
     recieveEventMessage: (channel: any, func: any) => {
+        console.log("register happend");
         ipcRenderer.on(channel, (event, ...args) => func(...args));
     }
 });

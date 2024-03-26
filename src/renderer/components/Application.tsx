@@ -56,7 +56,7 @@ const Application: React.FC = () => {
   const showPopUp = () => {
     console.log("dsadas");
     console.log(popUpContext);
-    popUpContext.showPopUp("dsa")
+    popUpContext.showPopUp({ message: "event title", body: "event body" });
   }
 
   return (

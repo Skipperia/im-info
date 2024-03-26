@@ -13,6 +13,7 @@
 import { BrowserWindow, ipcMain, shell } from 'electron';
 
 export const registerTitlebarIpc = (mainWindow: BrowserWindow) => {
+
   ipcMain.handle('window-minimize', () => {
     mainWindow.minimize();
   });

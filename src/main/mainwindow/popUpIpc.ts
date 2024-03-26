@@ -8,9 +8,14 @@ let popUpWindow: BrowserWindow;
 
 export const registerPopUpIpc = (mainWindow: BrowserWindow) => {
 
-    ipcMain.handle("info-message-show-popup", (event, message) => {
+    interface EventMessage {
+        message: string,
+        body: string
+    }
+    ipcMain.handle("info-message-show-popup", (event, eventMsg: EventMessage) => {
+
         popUpWindow = new BrowserWindow({
-            width: 400,
+            width: 500,
             height: 200,
             parent: mainWindow, // optional: makes the popup a modal window
             modal: true, // optional: makes the popup a modal window
@@ -25,7 +30,7 @@ export const registerPopUpIpc = (mainWindow: BrowserWindow) => {
 
         popUpWindow.setMenu(null);
 
-        popUpWindow.webContents.openDevTools();
+        // popUpWindow.webContents.openDevTools();
 
 
         popUpWindow.on('closed', () => {
@@ -33,11 +38,13 @@ export const registerPopUpIpc = (mainWindow: BrowserWindow) => {
         });
 
         popUpWindow.loadURL(POPUP_WINDOW_WEBPACK_ENTRY);
-
+        console.log(JSON.stringify(eventMsg));
         // Send the message to the popup
         popUpWindow.webContents.on('did-finish-load', () => {
-            console.log("send message " + message);
-            popUpWindow.webContents.send('message', message);
+            console.log("send message " + eventMsg.message);
+            console.log("send body " + eventMsg.body);
+
+            popUpWindow.webContents.send('message', eventMsg.message, eventMsg.body);
         });
     });
 

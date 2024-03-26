@@ -27,6 +27,7 @@ type Props = {
   borderColor?: string;
   platform: 'windows' | 'mac';
   children: React.ReactNode;
+  reducedTitle?: boolean;
 };
 
 type Context = {
@@ -66,13 +67,12 @@ const WindowFrame: React.FC<Props> = (props) => {
     <WindowContext.Provider value={{ platform: props.platform }}>
       <ThemeProvider theme={theme}>
         <AdvancedViewContext.Provider value={{ isAdvancedView: isAdvancedView, setIsAdvancedView: setIsAdvancedView }}>
-          {/* Reference creator */}
           <div className='start-electron-window' ref={itsRef}></div>
-          {/* Window Titlebar */}
           {props.useMenuBar ? <Titlebar
             title={props.title}
             mode='centered-title'
             icon={logo}
+            reducedTitle={props.reducedTitle}
           /> : <div></div>}
 
           {/* Window Content (Application to render) */}

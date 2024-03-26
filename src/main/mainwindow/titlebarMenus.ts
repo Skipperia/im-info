@@ -23,6 +23,7 @@ export type TitlebarMenu = {
   items: TitlebarMenuItem[];
 };
 
+
 const titlebarMenus: TitlebarMenu[] = [
   {
     name: 'File',

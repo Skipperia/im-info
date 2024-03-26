@@ -22,6 +22,7 @@ type Props = {
   title: string;
   mode: 'centered-title';
   icon?: string;
+  reducedTitle?: boolean;
 };
 
 const Titlebar: React.FC<Props> = (props) => {
@@ -137,7 +138,7 @@ const Titlebar: React.FC<Props> = (props) => {
           hidden: !menusVisible,
         })}
       >
-        {titlebarMenus.map((item, menuIndex) => {
+        {!props.reducedTitle ? titlebarMenus.map((item, menuIndex) => {
           return (
             <div className='menu-item' key={`menu_${menuIndex}`}>
               <div
@@ -178,7 +179,7 @@ const Titlebar: React.FC<Props> = (props) => {
               </div>
             </div>
           );
-        })}
+        }) : null}
       </section>
 
       <WindowControls platform={windowContext.platform} tooltips={true} />
