@@ -37,6 +37,9 @@ export function createAppWindow(): BrowserWindow {
   // Load the index.html of the app window.
   appWindow.loadURL(APP_WINDOW_WEBPACK_ENTRY);
 
+  //appWindow.webContents.openDevTools();
+
+
   // Show window when its ready to
   appWindow.on('ready-to-show', () => appWindow.show());
 

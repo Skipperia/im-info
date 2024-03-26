@@ -8,9 +8,9 @@ module.exports = {
     // Create asar archive for main, renderer process files
     asar: true,
     // Set executable name
-    executableName: 'ERWT',
+    executableName: 'IMInfo',
     // Set application copyright
-    appCopyright: '© 2021-2024 Codesbiome, Guasam',
+    appCopyright: '© 2021-2024 Elbit - Skipper',
     // Set application icon
     icon: path.resolve('assets/images/appIcon.ico'),
   },
@@ -77,6 +77,14 @@ module.exports = {
                 js: path.join(rootDir, 'src/renderer/appPreload.tsx'),
               },
             },
+            {
+              name: 'popup_window',
+              html: path.join(rootDir, 'src/renderer/popup/popup.html'),
+              js: path.join(rootDir, 'src/renderer/popup/popupRenderer.tsx'),
+              preload: {
+                js: path.join(rootDir, 'src/renderer/popup/popupPreload.tsx'),
+              }
+            }
           ],
         },
         devServer: {

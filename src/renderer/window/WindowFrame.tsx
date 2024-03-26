@@ -1,15 +1,3 @@
-/**
- * Copyright (c) 2021, Guasam
- *
- * This software is provided "as-is", without any express or implied warranty. In no event
- * will the authors be held liable for any damages arising from the use of this software.
- * Read the LICENSE file for more details.
- *
- * @author  : guasam
- * @project : Electron Window
- * @package : Window Frame (Component)
- */
-
 import React, { useEffect, useRef, createContext, useState, SetStateAction } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import Titlebar from './Titlebar';
@@ -35,6 +23,7 @@ const theme = createTheme({
 
 type Props = {
   title?: string;
+  useMenuBar?: boolean;
   borderColor?: string;
   platform: 'windows' | 'mac';
   children: React.ReactNode;
@@ -80,11 +69,12 @@ const WindowFrame: React.FC<Props> = (props) => {
           {/* Reference creator */}
           <div className='start-electron-window' ref={itsRef}></div>
           {/* Window Titlebar */}
-          <Titlebar
+          {props.useMenuBar ? <Titlebar
             title={props.title}
             mode='centered-title'
             icon={logo}
-          />
+          /> : <div></div>}
+
           {/* Window Content (Application to render) */}
           <div className='window-content'>{props.children}</div>
         </AdvancedViewContext.Provider>
