@@ -1,4 +1,5 @@
 import { BrowserWindow, ipcMain, shell } from 'electron';
+import path from 'path';
 
 
 declare const POPUP_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
@@ -18,6 +19,7 @@ export const registerPopUpIpc = (mainWindow: BrowserWindow) => {
             width: 500,
             height: 200,
             parent: mainWindow, // optional: makes the popup a modal window
+            icon: path.resolve('assets/images/im-info-icon.ico'),
             modal: true, // optional: makes the popup a modal window
             webPreferences: {
                 preload: POPUP_WINDOW_PRELOAD_WEBPACK_ENTRY,

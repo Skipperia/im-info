@@ -29,7 +29,7 @@ export function createAppWindow(): BrowserWindow {
     autoHideMenuBar: true,
     frame: false,
     titleBarStyle: 'hidden',
-    icon: path.resolve('assets/images/appIcon.ico'),
+    icon: path.resolve('assets/images/im-info-icon.ico'),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -59,7 +59,7 @@ export function createAppWindow(): BrowserWindow {
 
 
 function initTray() {
-  tray = new Tray(path.resolve('assets/images/appIcon.ico')); // Path to your tray icon
+  tray = new Tray(path.resolve('assets/images/im-info-icon.ico')); // Path to your tray icon
   const trayMenu = Menu.buildFromTemplate([
     {
       label: 'Show App', click: function () {

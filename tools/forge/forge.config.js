@@ -12,7 +12,7 @@ module.exports = {
     // Set application copyright
     appCopyright: '© 2021-2024 Elbit - Skipper',
     // Set application icon
-    icon: path.resolve('assets/images/appIcon.ico'),
+    icon: path.resolve('assets/images/im-info-icon.ico'),
   },
   // Forge Makers
   makers: [

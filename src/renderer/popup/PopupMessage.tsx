@@ -1,11 +1,13 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-
+import './popup.css';
 
 
 const PopupMessage = () => {
     const [msg, setMsg] = useState("title");
     const [body, setBody] = useState("body");
+    localStorage.setItem('dark-mode', '1');
+    document.body.classList.add('dark-mode');
 
     useEffect(() => {
         // Receiving a message from the main process
@@ -21,20 +23,19 @@ const PopupMessage = () => {
 
 
     return (<div>
-        <Card sx={{ maxWidth: 500 }}>
+        <Card id="eventCard">
             {/* <CardMedia
                 sx={{ height: 140 }}
                 image="/static/images/cards/contemplative-reptile.jpg"
                 title="green iguana"
             /> */}
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography id="eventTitle" gutterBottom variant="h5" component="div">
                     {msg}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography id="eventBody" variant="body2" color="text.secondary">
                     {body}
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+
                 </Typography>
             </CardContent>
         </Card>

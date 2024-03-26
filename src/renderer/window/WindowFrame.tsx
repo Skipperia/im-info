@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, createContext, useState, SetStateAction } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import Titlebar from './Titlebar';
-import logo from '@assets/images/im-info-logo.png';
+import logo from '@assets/images/im-info-icon.png';
 import { createTheme } from '@mui/material/styles';
 import { blue } from '@mui/material/colors';
 
