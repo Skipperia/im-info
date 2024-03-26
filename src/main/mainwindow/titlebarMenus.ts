@@ -80,7 +80,7 @@ const titlebarMenus: TitlebarMenu[] = [
     name: 'Credits',
     items: [
       {
-        name: 'Alex',
+        name: 'Alex Kipper',
         action: 'open_url',
         value: 'https://github.com/Skipperia',
         shortcut: '@Skipperia',

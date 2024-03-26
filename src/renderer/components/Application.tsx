@@ -58,15 +58,7 @@ const Application: React.FC = () => {
 
   return (
     <div id='erwt'>
-      <ToggleButton
-        value="check"
-        selected={isAdvancedView}
-        onChange={() => {
-          toggleAdvancedView();
-        }}
-      >
-      </ToggleButton>
-      <Button variant="outlined" onClick={showPopUp} >Text</Button>
+      <Button variant="outlined" onClick={showPopUp} >open popup</Button>
     </div >
   );
 };

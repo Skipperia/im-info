@@ -54,7 +54,7 @@ const WindowFrame: React.FC<Props> = (props) => {
 
 
   useEffect(() => {
-    (window as any).electron.setAdvancedView('setAdvancedView', () => {
+    (window as any).main_window.setAdvancedView('setAdvancedView', () => {
       setIsAdvancedView(!isAdvancedView);
     });
   });
