@@ -29,6 +29,10 @@ export const registerTitlebarIpc = (mainWindow: BrowserWindow, windowContext: { 
     }
   });
 
+  ipcMain.handle('advanced-view', () => {
+    mainWindow.webContents.send('setAdvancedView');
+  });
+
   ipcMain.handle('window-close', (event, forceClose: boolean) => {
     windowContext.forceClose = forceClose;
     mainWindow.close();

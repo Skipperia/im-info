@@ -78,6 +78,9 @@ const titlebarContext = {
   open_url(url: string) {
     ipcRenderer.invoke('open-url', url);
   },
+  toggleAdvancedView() {
+    ipcRenderer.invoke('advanced-view');
+  }
 };
 
 export type TitlebarContextApi = typeof titlebarContext;

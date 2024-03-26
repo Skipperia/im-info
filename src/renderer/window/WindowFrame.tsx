@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, createContext, useState, SetStateAction } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import Titlebar from './Titlebar';
 import logo from '@assets/images/im-info-icon.png';
@@ -51,6 +51,13 @@ export const AdvancedViewContext = React.createContext<AdvancedViewState>({
 const WindowFrame: React.FC<Props> = (props) => {
   const itsRef = useRef<HTMLDivElement>(null);
   const [isAdvancedView, setIsAdvancedView] = useState<boolean>(true);
+
+
+  useEffect(() => {
+    (window as any).electron.setAdvancedView('setAdvancedView', () => {
+      setIsAdvancedView(!isAdvancedView);
+    });
+  });
 
   useEffect(() => {
     const { parentElement } = itsRef.current;

@@ -43,9 +43,8 @@ const titlebarMenus: TitlebarMenu[] = [
     name: 'Edit',
     items: [
       {
-        name: 'Undo',
-        action: 'undo',
-        shortcut: 'Ctrl+Z',
+        name: 'Toggle Advanced View',
+        action: 'toggleAdvancedView'
       },
     ],
   },
@@ -71,24 +70,6 @@ const titlebarMenus: TitlebarMenu[] = [
         name: '__',
       },
       {
-        name: 'Actual Size',
-        action: 'actual_size',
-        shortcut: 'Ctrl+0',
-      },
-      {
-        name: 'Zoom In',
-        action: 'zoom_in',
-        shortcut: 'Ctrl++',
-      },
-      {
-        name: 'Zoom Out',
-        action: 'zoom_out',
-        shortcut: 'Ctrl+-',
-      },
-      {
-        name: '__',
-      },
-      {
         name: 'Toggle Fullscreen',
         action: 'toggle_fullscreen',
         shortcut: 'F11',
@@ -96,33 +77,13 @@ const titlebarMenus: TitlebarMenu[] = [
     ],
   },
   {
-    name: 'Window',
-    items: [
-      {
-        name: 'Maximize',
-        action: 'toggle_maximize',
-        shortcut: 'Toggle'
-      },
-      {
-        name: 'Minimize',
-        action: 'minimize',
-        shortcut: 'Ctrl+M',
-      },
-      {
-        name: 'Close',
-        action: 'exit',
-        shortcut: 'Ctrl+W',
-      },
-    ],
-  },
-  {
     name: 'Credits',
     items: [
       {
-        name: 'Guasam',
+        name: 'Alex',
         action: 'open_url',
-        value: 'https://github.com/guasam',
-        shortcut: '@guasam',
+        value: 'https://github.com/Skipperia',
+        shortcut: '@Skipperia',
       },
     ],
   },

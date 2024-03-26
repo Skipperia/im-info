@@ -105,10 +105,10 @@ const Titlebar: React.FC<Props> = (props) => {
 
   function handleAction(action?: string, value?: string | number | boolean) {
     closeActiveMenu();
-    const c: Record<string, CallableFunction> = context;
+    const menuSelection: Record<string, CallableFunction> = context;
     if (action) {
-      if (typeof c[action] === 'function') {
-        c[action](value);
+      if (typeof menuSelection[action] === 'function') {
+        menuSelection[action](value);
       } else {
         console.log(`action [${action}] is not available in titlebar context`);
       }
