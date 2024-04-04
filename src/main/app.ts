@@ -6,6 +6,9 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+app.commandLine.appendSwitch('inspect', '5858');
+
+
 /**
  * This method will be called when Electron has finished
  * initialization and is ready to create browser windows.

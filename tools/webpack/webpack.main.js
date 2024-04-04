@@ -12,5 +12,6 @@ module.exports = {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json'],
     alias: require('./webpack.aliases'),
   },
+  devtool: 'source-map',
   stats: 'minimal',
 };

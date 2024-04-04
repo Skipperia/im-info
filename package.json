@@ -1,6 +1,6 @@
 {
-  "name": "erwt",
-  "productName": "ERWT",
+  "name": "IM-info",
+  "productName": "IM-info",
   "version": "8.0.0",
   "description": "Robust project for developing Desktop Application with Electron, React, Webpack & TypeScript.",
   "main": ".webpack/main",
@@ -20,7 +20,7 @@
     "hmr",
     "boilerplate",
     "2024",
-    "ERWT"
+    "IM-info"
   ],
   "author": {
     "name": "codesbiome",
